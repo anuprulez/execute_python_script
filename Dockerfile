@@ -15,18 +15,26 @@ RUN apt-get -qq update && apt-get install --no-install-recommends -y libcurl4-op
 
 # Python packages
 RUN pip install --no-cache-dir \
-    #tensorflow-gpu==2.5.0 \
-    #scikit-learn \
-    #pyyaml \
-    #h5py \
-    #pandas \ 
-    #pytables \
-    #onnx onnx-tf \
-    #tf2onnx \
-    #skl2onnx \
-    #onnxruntime \
-    #bioblend \
+    tensorflow-gpu==2.5.0 \
+    scikit-learn \
+    pyyaml \
+    h5py \
+    pandas \ 
+    datasette-pytables \
+    onnx onnx-tf \
+    tf2onnx \
+    skl2onnx \
+    onnxruntime \
+    bioblend \
     galaxy-ie-helpers
 
-COPY main.py main.py
+ENV PATH /bin/:${PATH}
+
+COPY main.py /bin/
+
+#RUN echo "#!/usr/bin/env python" | cat - /bin/main.py | tee /bin/main.py
+
+RUN chmod -R 755 /bin
+
+CMD ["/bin/bash"]
 
