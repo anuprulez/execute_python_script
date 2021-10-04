@@ -14,22 +14,20 @@ RUN apt-get -qq update && apt-get install --no-install-recommends -y libcurl4-op
     apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Python packages
-#RUN pip install --no-cache-dir \
+RUN pip install --no-cache-dir \
 #    tensorflow-gpu==2.5.0 \
 #    scikit-learn \
 #    pyyaml \
-#    h5py \
-#    pandas \ 
+    h5py \
+#    pandas \
 #    datasette-pytables \
 #    onnx onnx-tf \
 #    tf2onnx \
 #    skl2onnx \
 #    onnxruntime \
 #    bioblend \
-#    galaxy-ie-helpers
+    galaxy-ie-helpers
 
-ADD sample_script.py .
-
-CMD ["python", "sample_script.py", "/bin/bash"]
+#CMD ["python", "/bin/bash"]
 
 
