@@ -14,11 +14,11 @@ RUN pip install --no-cache-dir \
     h5py \
     pandas \    
     datasette-pytables \
-    onnx onnx-tf \
+    onnx \
+    onnx-tf \
     tf2onnx \
     skl2onnx \
     onnxruntime \
     bioblend \
-    galaxy-ie-helpers
-
-
+    galaxy-ie-helpers \
+    bqplot
